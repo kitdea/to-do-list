@@ -33,3 +33,18 @@ function addTask(e) {
   console.log();
   e.preventDefault();
 }
+
+const delItem = document.querySelector('.delete-item');
+const itemList = document.querySelector('.collection-item')
+
+delItem.addEventListener('click', deleteItem, itemList);
+document.body.addEventListener('click', deleteItem);
+
+taskInput.value = '';
+function deleteItem(e) {
+
+   if(e.target.parentElement.classList.contains('delete-item')){
+     console.log('delete item');
+     e.target.parentElement.parentElement.remove();
+  }
+}
