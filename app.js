@@ -38,7 +38,7 @@ function addTask(e) {
 
 // Remove Task
 function removeTask(e) {
-  if(e.target.){
+  if(e.target.parentElement.classList.contains('delete-item')){
     console.log(e.target);
 
   } 
