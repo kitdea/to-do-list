@@ -3,6 +3,8 @@ const taskList = document.querySelector('.collection');
 const clearBtn = document.querySelector('.clear-tasks');
 const filter = document.querySelector('#filter');
 const taskInput = document.querySelector('#task');
+const changeColor = document.querySelector('.collection-item');
+const title = document.querySelector('.card-title');
 
 loadEventListeners();
 
@@ -18,6 +20,12 @@ function loadEventListeners() {
   clearBtn.addEventListener('click', clearTask);
 // filter task event
   filter.addEventListener('keyup', filterTask);
+
+  title.addEventListener('click', changeText);
+}
+function changeText(){
+  title.innerHTML = 'Alokakok';
+  title.style.backgroundColor = 'grey';
 }
 
 // Get Tasks from LS
@@ -84,7 +92,7 @@ function storeTaskInLocalStorage(task) {
 // Remove Task
 function removeTask(e) {
   if(e.target.parentElement.classList.contains('delete-item')){
-    if(confirm('Are You Sure?')) {
+    if(confirm('Are You Sure?')){
       e.target.parentElement.parentElement.remove();
 
       // remove from LS
@@ -120,6 +128,7 @@ function clearTask() {
 
   // Clear from LS
   clearTasksFromLocalStorage();
+  
 }
 
 // Clear from LS
